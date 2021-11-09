@@ -8,7 +8,6 @@ var server = require('server');
 var cache = require('*/cartridge/scripts/middleware/cache');
 var consentTracking = require('*/cartridge/scripts/middleware/consentTracking');
 var pageMetaData = require('*/cartridge/scripts/middleware/pageMetaData');
-var userLoggedIn = require('*/cartridge/scripts/middleware/userLoggedIn');
 
 /** when sitepath is defined in the site aliases from business manager, homepage will be rendered directly */
 /**
@@ -22,7 +21,7 @@ var userLoggedIn = require('*/cartridge/scripts/middleware/userLoggedIn');
  * @param {renders} - isml
  * @param {serverfunction} - get
  */
-server.get('Start', consentTracking.consent, userLoggedIn.validateLoggedIn, cache.applyDefaultCache, function (req, res, next) {
+server.get('Start', consentTracking.consent, cache.applyDefaultCache, function (req, res, next) {
     var Site = require('dw/system/Site');
     var PageMgr = require('dw/experience/PageMgr');
     var pageMetaHelper = require('*/cartridge/scripts/helpers/pageMetaHelper');
