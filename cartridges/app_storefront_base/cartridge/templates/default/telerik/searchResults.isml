@@ -1,0 +1,42 @@
+<isscript>
+  var ProductSearchModel = require('dw/catalog/ProductSearchModel');
+  var results = new ProductSearchModel();
+  var query = request.httpParameterMap.query;
+  var format = request.httpParameterMap.format;
+  results.setSearchPhrase(query);
+  results.search();
+</isscript>
+
+<isif condition="${pdict.format == "ajax"}">
+  <isset name="decorator" value="common/layout/blank" scope="page"/>
+<iselse>
+  <isset name="decorator" value="common/layout/page" scope="page"/>
+</isif>
+<isdecorate template="${decorator}">
+ <isset name="resultsCount" value="${pdict.searchResults.count}" scope="page"/>
+ <isset name="query" value="${pdict.query}" scope="page"/>
+ <isif condition="${resultsCount > 0}">
+  <div>Results for searching for ${query} is <isprint value="${resultsCount}" style="INTEGER" /></div>
+  
+  <isloop items="${pdict.searchResults.productSearchHits}" var="productHit" status="counter">
+    <isif condition="${counter.count % 3 == 1}">
+      <div class="row justify-content-center">
+    </isif>
+    <isset name="product" value="${productHit.getProduct()}" scope="page" />
+    <isinclude url="${URLUtils.url('Tile-Show', 'pid', product.ID, 'swatches', true, 'ratings', true)}" />
+      <iscomment> <div class="col-md-4 text-center mb-5">
+        <a href="${URLUtils.url("Product-Show", "pid", product.ID)}">
+          <div>${product.name}</div>
+          <div><img src="${product.getImage('small').httpURL}" alt="${product.getImage('small').alt}"/></div>
+        </a>
+      </div> </iscomment>
+    <isif condition="${counter.count % 3 == 0}">
+      </div>
+      <hr/>
+    </isif>
+  </isloop>
+
+  <iselse>
+    No results for ${query}
+  </isif>
+</isdecorate>

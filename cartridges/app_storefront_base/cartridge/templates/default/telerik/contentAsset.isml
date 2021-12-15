@@ -1,0 +1,9 @@
+<isdecorate template="common/layout/page">
+  <isif condition="${!empty(pdict.content) && pdict.content.online}">
+    <isprint value="${dw.util.StringUtils.format(pdict.content.custom.body.markup, "Valeri")}" encoding="off"/>
+  </isif>
+
+  Properties <fieldset>
+    ${Resource.msgf('label.welcome', 'account.welcome', null, 'ValeriMsgf')}
+  </fieldset>
+</isdecorate>

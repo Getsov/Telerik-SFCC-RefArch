@@ -1,0 +1,3 @@
+<p>${items}</p>
+<p>Include template</p>
+<isprint value="${new Date().toLocaleString()}" />
