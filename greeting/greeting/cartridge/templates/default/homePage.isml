@@ -15,6 +15,8 @@
             <isslot id="home-categories-m" description="Categories slots on the home page." context="global" />
         </div>
     </div>
+  TESTTT
+    <isinclude url="${URLUtils.url('Cat-Fact')}"/>
 
     <div class="container home-product-tiles homepage">
         <div class="hp-product-grid" itemtype="http://schema.org/SomeProducts" itemid="#product">
