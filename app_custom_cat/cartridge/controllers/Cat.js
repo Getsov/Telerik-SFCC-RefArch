@@ -27,7 +27,6 @@ var catFactService = require('*/cartridge/scripts/catFactService.js');
 
 server.get('Fact', server.middleware.include, cache.applyDefaultCache, function (req, res, next) {
     
-  
     // var httpClient = new dw.net.HTTPClient();
    
     // httpClient.open('GET', 'https://catfact.ninja/fact');
