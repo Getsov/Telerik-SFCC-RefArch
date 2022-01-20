@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<form xmlns="http://www.demandware.com/xml/form/2008-04-19">
+    <field 
+			formid="phone"
+			label="label.input.phone.notification"
+			mandatory="true"
+      missing-error="error.message.required"
+      parse-error="error.message.phone.invalid"
+      data-pattern-mismatch="${Resource.msg('error.message.phone.invalid','forms',null)}"
+      regexp="^\+(?:[0-9] ?){6,14}[0-9]$"
+			type="string"/> 
+</form>

@@ -1,0 +1,12 @@
+{
+  "step-types": {
+    "script-module-step":
+    [
+      {
+        "@type-id": "custom.productAvailabilityJobStep",
+        "description": "Custom job step to check if a product is available and if it is, send sms to subscribers and delete the custom object",
+        "module": "plugin_backinstock/cartridge/scripts/steps/ModuleJob"
+      }
+    ]
+  }
+}
