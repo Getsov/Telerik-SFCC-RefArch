@@ -1,0 +1,22 @@
+{
+    "name": "Video Banner",
+    "description": "Banner for youtube video player",
+    "group": "commerce_assets",
+    "attribute_definition_groups": [
+        {
+            "id": "videoId",
+            "name": "Youtube video ID",
+            "description": "The video ID of an youtube video",
+            "attribute_definitions": [
+                {
+                    "id": "videoId",
+                    "name": "Youtube Video ID",
+                    "description": "The exact youtube video ID",
+                    "type": "string",
+                    "required": true
+                }
+            ]
+        }
+    ],
+    "region_definitions": []
+}
