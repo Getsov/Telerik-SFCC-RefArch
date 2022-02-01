@@ -1,0 +1,55 @@
+
+<div class="modal fade" id="notifyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">
+          <isprint value="${pdict.content.custom.body}" />
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form 
+          action="${URLUtils.url('Twilio-Subscribe')}"
+          class="notification-form" 
+          method="POST" 
+          data-submit-success="${Resource.msg('text.alert.subscription.successful','product',null)}"
+          data-submit-error="${Resource.msg('error.alert.something.went.wrong','product',null)}"
+          <isprint value="${pdict.notificationForm.attributes}" 
+          encoding="off" />
+        >
+
+          <div class="form-group
+              ${pdict.notificationForm.phone.mandatory === true ? 'required' : ''}">
+              <label class="form-control-label" for="phone">
+                  <isprint value="${pdict.notificationForm.phone.label}" encoding="htmlcontent" />
+              </label>
+              <input 
+                type="text" 
+                class="form-control" 
+                id="phone" 
+                data-pattern-mismatch="${Resource.msg('error.message.phone.invalid','forms',null)}"
+                <isprint value="${pdict.notificationForm.phone.attributes}" encoding="off" />
+                autocomplete="tel"
+              >
+              <div class="invalid-feedback"></div>
+          </div>
+          <input type="hidden" name="${dw.web.CSRFProtection.getTokenName()}" value="${dw.web.CSRFProtection.generateToken()}">
+          <input type="hidden" name="pid" value="${pdict.product.id}"/>
+
+          <div class="row">
+              <div class="col">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">${Resource.msg('button.cancel','account',null)}</button>
+              </div>
+
+              <div class="col">
+                  <button type="submit" name="save" class="btn btn-save btn-block btn-primary">${Resource.msg('button.save','account',null)}</button>
+              </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

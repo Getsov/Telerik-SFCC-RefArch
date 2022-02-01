@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xmlns="http://www.demandware.com/xml/impex/metadata/2006-10-31">
+    <custom-type type-id="NotifyMeBackInStock">
+        <display-name xml:lang="x-default">Notify Me Back In Stock</display-name>
+        <description xml:lang="x-default">Notification list for products with users phone numbers</description>
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>site</storage-scope>
+        <retention-days>30</retention-days>
+        <key-definition attribute-id="productId">
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="phoneNumbers">
+                <display-name xml:lang="x-default">Phone Numbers</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="phoneNumbers">
+                <display-name xml:lang="x-default">Phone numbers</display-name>
+                <attribute attribute-id="phoneNumbers"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+
+    <custom-type type-id="Test">
+        <display-name xml:lang="x-default">Test Object</display-name>
+        <description xml:lang="x-default">Test object - delete after</description>
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>organization</storage-scope>
+        <retention-days>60</retention-days>
+        <key-definition attribute-id="testId">
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="newProperty">
+                <display-name xml:lang="x-default">New Property</display-name>
+                <type>html</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="test">
+                <display-name xml:lang="x-default">Test Group</display-name>
+                <attribute attribute-id="testId"/>
+                <attribute attribute-id="newProperty"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+
+</metadata>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<custom-objects xmlns="http://www.demandware.com/xml/impex/customobject/2006-10-31">
+    <custom-object type-id="NotifyMeBackInStock" object-id="013742003031M">
+        <object-attribute attribute-id="phoneNumbers">+359877770522</object-attribute>
+    </custom-object>
+
+</custom-objects>
